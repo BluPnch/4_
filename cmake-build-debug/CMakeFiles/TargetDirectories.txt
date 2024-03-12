@@ -1,5 +1,0 @@
-/home/varya/4 семестр/cmake-build-debug/CMakeFiles/4_.dir
-/home/varya/4 семестр/cmake-build-debug/CMakeFiles/edit_cache.dir
-/home/varya/4 семестр/cmake-build-debug/CMakeFiles/rebuild_cache.dir
-/home/varya/4 семестр/cmake-build-debug/CMakeFiles/4__autogen_timestamp_deps.dir
-/home/varya/4 семестр/cmake-build-debug/CMakeFiles/4__autogen.dir
