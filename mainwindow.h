@@ -23,7 +23,9 @@ public:
     ~MainWindow();
 
 private slots:
-    void on_pushButton_4_clicked();
+    void push_transfer();
+    void push_zoom();
+    void push_rotate();
 
 private:
     Ui::MainWindow *ui;

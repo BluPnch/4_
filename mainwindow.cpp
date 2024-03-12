@@ -42,9 +42,21 @@ errors MainWindow::draw() {
     task_manager(req);
 }
 
-void MainWindow::on_pushButton_4_clicked() {
-    double x = ui->doubleSpinBox->value();
-    printf("%lf\n", x);
+void MainWindow::push_transfer() {
+    double x = ui->transf_x->value(),  y = ui->transf_y->value(), z = ui->transf_z->value();
+    printf("%lf %lf %lf\n", x, y, z);
+    // TODO что-то сделать
+    draw();
+}
+void MainWindow::push_zoom() {
+    double x = ui->zoom_x->value(),  y = ui->zoom_y->value(), z = ui->zoom_z->value();
+    printf("%lf %lf %lf\n", x, y, z);
+    // TODO что-то сделать
+    draw();
+}
+void MainWindow::push_rotate() {
+    double x = ui->rot_x->value(),  y = ui->rot_y->value(), z = ui->rot_z->value();
+    printf("%lf %lf %lf\n", x, y, z);
     // TODO что-то сделать
     draw();
 }
