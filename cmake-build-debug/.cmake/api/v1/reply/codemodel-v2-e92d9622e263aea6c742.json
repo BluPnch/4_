@@ -1,0 +1,78 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"jsonFile" : "directory-.-Debug-f5ebdc15457944623624.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.28"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2
+					]
+				}
+			],
+			"name" : "Debug",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "4_",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "4_::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-4_-Debug-c1907c524aed54958230.json",
+					"name" : "4_",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "4__autogen::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-4__autogen-Debug-7d39aa695f1ead8c9b3f.json",
+					"name" : "4__autogen",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "4__autogen_timestamp_deps::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-4__autogen_timestamp_deps-Debug-d7b5f167f933f42aa675.json",
+					"name" : "4__autogen_timestamp_deps",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "/home/varya/4 \u0441\u0435\u043c\u0435\u0441\u0442\u0440/cmake-build-debug",
+		"source" : "/home/varya/4 \u0441\u0435\u043c\u0435\u0441\u0442\u0440"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 6
+	}
+}
