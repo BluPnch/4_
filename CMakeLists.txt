@@ -17,6 +17,7 @@ add_executable(4_ main.cpp
         point.h
         errors.h
         figure.h
+        figure.cpp
         actions.cpp
         actions.h)
 

@@ -4,14 +4,15 @@
 #include "figure.h"
 #include <QGraphicsScene>
 
-typedef struct draw
-{
+typedef struct draw {
     QGraphicsView *gV;
     int width;
     int height;
-}draw;
+} draw;
 
 int draw_figure(figure_t fig, draw arg);
+
+void draw_links(points_data points, links_data links, QGraphicsScene *scene);
 
 
 #endif //ACTIONS_H

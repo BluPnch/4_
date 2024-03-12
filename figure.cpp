@@ -1,46 +1,48 @@
-#include "cube.h"
+#include "figure.h"
+
+#include "actions.h"
 #include "point.h"
 #include "errors.h"
 
-cube& init()
+figure_t& init()
 {
-    static cube cub;
+    static figure_t figure;
 
-    cube.points.n = 0;
-    cube.points.arr = NULL;
+    figure.points.n = 0;
+    figure.points.arr = NULL;
 
-    cube.links.n = 0;
-    cube.links.arr = NULL;
+    figure.links.n = 0;
+    figure.links.arr = NULL;
 
-    return cube;
+    return figure;
 }
 
 
-void empty_cube(cube& cub)
+void empty_figure(figure_t& figure)
 {
-    cube.points.n = 0;
-    points_free(cub.points);
+    figure.points.n = 0;
+    // TODO points_free(figuRre.points);
 
-    cube.links.n = 0;
-    links_free(cub.links);
+    figure.links.n = 0;
+    // TODO links_free(figure.links);
 }
 
-void copy_cube(cube& cub, cube& tmp)
+void copy_figure(figure_t& figure, figure_t& tmp)
 {
-    cub.points.n = tmp.points.n;
-    cub.points.arr = tmp.points.arr;
+    figure.points.n = tmp.points.n;
+    figure.points.arr = tmp.points.arr;
 
-    cub.links.n = tmp.links.n;
-    cub.links.arr = tmp.links.arr;
+    figure.links.n = tmp.links.n;
+    figure.links.arr = tmp.links.arr;
 }
 
 
-int read_cube_from_file(cube& cub, const char *filename)
+int load_figure_from_file(figure_t& figure, const char *filename)
 {
     FILE *f = fopen(filename, "r");
     if (!f)
-        return FILE_NOT_FOUND;
-    cube cub_tmp = init();
+        return ERR_FILE_NOT_FOUND;
+    figure_t figure_tmp = init();
 
     /*int err = process_points(cub_tmp.points, f);
     if (!err)
@@ -52,12 +54,12 @@ int read_cube_from_file(cube& cub, const char *filename)
 
     if (!err)
     {
-        empty_cube(cub);
-        copy_cube(cub, cub_tmp);
+        empty_figure_t(cub);
+        copy_figure_t(cub, cub_tmp);
     }*/
 
     fclose(f);
-    return err;
+    // TODO return err;
 }
 
 // _________________________________________________________________________________________
@@ -67,42 +69,27 @@ point_t point_center(point_t point, draw arg)
 {
     point_t p_tmp;
 
-    p_tmp.x = point.x + arg.w / 2;
-    p_tmp.y = point.y + arg.h / 2;
+    p_tmp.x = point.x + arg.width / 2;
+    p_tmp.y = point.y + arg.height / 2;
 
-    return tmp;
+    return p_tmp;
 }
 
 // _________________________________________________________________________________________
 
 
-int draw_cube(cube cub, draw arg)
-{
-    // graphics a;
-    // int err = init_graph(a, arg.gV);
-    // if (err)
-    //     return err;
-
-    draw_links(cub.points, cub.links, arg, a);
-
-    a.scene->setSceneRect(QRectF(QPointF(0, 0), QSizeF(arg.w, arg.h)));
-    set(arg.gV, a);
-
-    return err;
-}
-
 /*
-int move_cube(cube& fig, move coeff)
+int move_figure_t(figure_t& fig, move coeff)
 {
     return move_points_array(fig.points.arr, fig.points.n, coeff);
 }
 
-int scale_cube(cube& fig, scale coeff)
+int scale_figure_t(figure_t& fig, scale coeff)
 {
     return scale_points_array(fig.points.arr, fig.points.n, coeff);
 }
 
-int turn_cube(cube& fig, turn coeff)
+int turn_figure_t(figure_t& fig, turn coeff)
 {
     return turn_points_array(fig.points.arr, fig.points.n, coeff);
 }*/

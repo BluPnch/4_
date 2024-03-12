@@ -2,21 +2,19 @@
 #include "figure.h"
 #include "errors.h"
 
-int task_manager(request req)
-{
+int task_manager(request req) {
     static figure_t figure = init();
-    int  err = 0;
+    int err = 0;
 
-    switch (req.t)
-    {
+    switch (req.t) {
         case INIT:
             break;
         case LOAD_FILE:
             err = load_figure_from_file(figure, req.load_f.filename);
-        break;
+            break;
         case DRAW:
             err = draw_figure(figure, req.dr);
-        break;
+            break;
         // case MOVE:
         //     err = move_figure(fig, req.mo);
         // break;
@@ -28,7 +26,7 @@ int task_manager(request req)
         // break;
         case QUIT:
             empty_figure(figure);
-        break;
+            break;
         default:
             err = ERR_UNKNOWN_COMMAND;
     }
