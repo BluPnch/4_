@@ -17,7 +17,7 @@
    <string>MainWindow</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <widget class="QLabel" name="label_9">
+   <widget class="QLabel" name="zoom_y_label">
     <property name="geometry">
      <rect>
       <x>30</x>
@@ -30,7 +30,7 @@
      <string>y:</string>
     </property>
    </widget>
-   <widget class="QLabel" name="label_5">
+   <widget class="QLabel" name="rotation_label">
     <property name="geometry">
      <rect>
       <x>20</x>
@@ -43,7 +43,7 @@
      <string>Поворот по: </string>
     </property>
    </widget>
-   <widget class="QLabel" name="label_3">
+   <widget class="QLabel" name="rot_x_label">
     <property name="geometry">
      <rect>
       <x>30</x>
@@ -66,7 +66,7 @@
      </rect>
     </property>
    </widget>
-   <widget class="QLabel" name="label_2">
+   <widget class="QLabel" name="transf_y_label">
     <property name="geometry">
      <rect>
       <x>20</x>
@@ -79,7 +79,7 @@
      <string>Сдвиг по y:</string>
     </property>
    </widget>
-   <widget class="QLabel" name="label_7">
+   <widget class="QLabel" name="rot_z_label">
     <property name="geometry">
      <rect>
       <x>30</x>
@@ -92,7 +92,7 @@
      <string>z:</string>
     </property>
    </widget>
-   <widget class="QLabel" name="label_6">
+   <widget class="QLabel" name="transf_z_label">
     <property name="geometry">
      <rect>
       <x>20</x>
@@ -105,7 +105,7 @@
      <string>Сдвиг по z:</string>
     </property>
    </widget>
-   <widget class="QLabel" name="label">
+   <widget class="QLabel" name="transf_x_label">
     <property name="geometry">
      <rect>
       <x>20</x>
@@ -118,7 +118,7 @@
      <string>Сдвиг по x:</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_4">
+   <widget class="QPushButton" name="rotate">
     <property name="geometry">
      <rect>
       <x>20</x>
@@ -131,7 +131,7 @@
      <string>Поворот</string>
     </property>
    </widget>
-   <widget class="QLabel" name="label_4">
+   <widget class="QLabel" name="rot_y_label">
     <property name="geometry">
      <rect>
       <x>30</x>
@@ -144,7 +144,7 @@
      <string>y:</string>
     </property>
    </widget>
-   <widget class="QLabel" name="label_8">
+   <widget class="QLabel" name="zoom_x_label">
     <property name="geometry">
      <rect>
       <x>30</x>
@@ -157,7 +157,7 @@
      <string>x:</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_2">
+   <widget class="QPushButton" name="transfer">
     <property name="geometry">
      <rect>
       <x>20</x>
@@ -170,7 +170,7 @@
      <string>Перенос</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_3">
+   <widget class="QPushButton" name="zoom">
     <property name="geometry">
      <rect>
       <x>20</x>
@@ -183,7 +183,7 @@
      <string>Масштабирование</string>
     </property>
    </widget>
-   <widget class="QLabel" name="label_10">
+   <widget class="QLabel" name="zoom_z_label">
     <property name="geometry">
      <rect>
       <x>30</x>
@@ -196,7 +196,7 @@
      <string>z:</string>
     </property>
    </widget>
-   <widget class="QLabel" name="label_11">
+   <widget class="QLabel" name="zoom_label">
     <property name="geometry">
      <rect>
       <x>20</x>
@@ -209,7 +209,7 @@
      <string>Масштабирование по: </string>
     </property>
    </widget>
-   <widget class="QDoubleSpinBox" name="doubleSpinBox">
+   <widget class="QDoubleSpinBox" name="transf_x">
     <property name="geometry">
      <rect>
       <x>110</x>
@@ -231,7 +231,7 @@
      <double>500.000000000000000</double>
     </property>
    </widget>
-   <widget class="QDoubleSpinBox" name="doubleSpinBox_4">
+   <widget class="QDoubleSpinBox" name="zoom_x">
     <property name="geometry">
      <rect>
       <x>50</x>
@@ -247,7 +247,7 @@
      <double>500.000000000000000</double>
     </property>
    </widget>
-   <widget class="QDoubleSpinBox" name="doubleSpinBox_2">
+   <widget class="QDoubleSpinBox" name="transf_y">
     <property name="geometry">
      <rect>
       <x>110</x>
@@ -269,7 +269,7 @@
      <double>500.000000000000000</double>
     </property>
    </widget>
-   <widget class="QDoubleSpinBox" name="doubleSpinBox_3">
+   <widget class="QDoubleSpinBox" name="transf_z">
     <property name="geometry">
      <rect>
       <x>110</x>
@@ -291,7 +291,7 @@
      <double>500.000000000000000</double>
     </property>
    </widget>
-   <widget class="QDoubleSpinBox" name="doubleSpinBox_5">
+   <widget class="QDoubleSpinBox" name="zoom_y">
     <property name="geometry">
      <rect>
       <x>50</x>
@@ -307,7 +307,7 @@
      <double>500.000000000000000</double>
     </property>
    </widget>
-   <widget class="QDoubleSpinBox" name="doubleSpinBox_6">
+   <widget class="QDoubleSpinBox" name="zoom_z">
     <property name="geometry">
      <rect>
       <x>50</x>
@@ -323,7 +323,7 @@
      <double>500.000000000000000</double>
     </property>
    </widget>
-   <widget class="QDoubleSpinBox" name="doubleSpinBox_7">
+   <widget class="QDoubleSpinBox" name="rot_z">
     <property name="geometry">
      <rect>
       <x>50</x>
@@ -339,7 +339,7 @@
      <double>500.000000000000000</double>
     </property>
    </widget>
-   <widget class="QDoubleSpinBox" name="doubleSpinBox_8">
+   <widget class="QDoubleSpinBox" name="rot_x">
     <property name="geometry">
      <rect>
       <x>50</x>
@@ -355,7 +355,7 @@
      <double>500.000000000000000</double>
     </property>
    </widget>
-   <widget class="QDoubleSpinBox" name="doubleSpinBox_9">
+   <widget class="QDoubleSpinBox" name="rot_y">
     <property name="geometry">
      <rect>
       <x>50</x>

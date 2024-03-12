@@ -46,7 +46,5 @@ void MainWindow::on_pushButton_4_clicked() {
     double x = ui->doubleSpinBox->value();
     printf("%lf\n", x);
     // TODO что-то сделать
-
-
     draw();
 }
