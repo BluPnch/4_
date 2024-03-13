@@ -1,5 +1,4 @@
 #include "figure.h"
-
 #include "actions.h"
 #include "point.h"
 #include "errors.h"
@@ -39,41 +38,43 @@ void copy_figure(figure_t& figure, figure_t& tmp)
 
 int load_figure_from_file(figure_t& figure, const char *filename)
 {
+    int res = 0;
     FILE *f = fopen(filename, "r");
     if (!f)
         return ERR_FILE_NOT_FOUND;
     figure_t figure_tmp = init();
 
-    /*int err = process_points(cub_tmp.points, f);
+    int err = points_process(figure_tmp.points, f);
     if (!err)
     {
-        err = process_links(cub_tmp.links, f);
-        if err:
-            points_free(cub_tmp.points);
+        err = links_process(figure_tmp.links, f);
+        if (err)
+            points_free(figure_tmp.points);
     }
 
     if (!err)
     {
-        empty_figure_t(cub);
-        copy_figure_t(cub, cub_tmp);
-    }*/
+        empty_figure(figure);
+        copy_figure(figure, figure_tmp);
+    }
 
     fclose(f);
     // TODO return err;
+    return res;
 }
 
 // _________________________________________________________________________________________
 
 
-point_t point_center(point_t point, draw arg)
-{
-    point_t p_tmp;
-
-    p_tmp.x = point.x + arg.width / 2;
-    p_tmp.y = point.y + arg.height / 2;
-
-    return p_tmp;
-}
+// point_t point_center(point_t point, draw arg)
+// {
+//     point_t p_tmp;
+//
+//     p_tmp.x = point.x + arg.width / 2;
+//     p_tmp.y = point.y + arg.height / 2;
+//
+//     return p_tmp;
+// }
 
 // _________________________________________________________________________________________
 

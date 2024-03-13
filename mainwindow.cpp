@@ -9,18 +9,14 @@ MainWindow::MainWindow(QWidget *parent): QMainWindow(parent),
                                          ui(new Ui::MainWindow) {
     ui->setupUi(this);
 
-    // scene = new QGraphicsScene(ui->graphicsView);
-    // scene = new QGraphicsScene(0, 0, SCREEN_WIDTH - 2, SCREEN_HEIGHT - 2, parent);
-    // scene->addRect(scene->sceneRect());
-    // ui->graphicsView->setScene(scene);
 
     request req;
     req.t = INIT;
     task_manager(req);
 
-
     req.t = LOAD_FILE;
-    req.load_f.filename = "/home/andrey/CLionProjects/4_/figure.txt";
+    // req.load_f.filename = "/home/andrey/CLionProjects/4_/figure.txt";
+    req.load_f.filename = "/home/varya/4 семестр/figure.txt";
     task_manager(req);
 
     draw();
@@ -43,7 +39,7 @@ errors MainWindow::draw() {
 }
 
 void MainWindow::push_transfer() {
-    double x = ui->transf_x->value(),  y = ui->transf_y->value(), z = ui->transf_z->value();
+    double x = ui->transf_x->value(), y = ui->transf_y->value(), z = ui->transf_z->value();
     printf("%lf %lf %lf\n", x, y, z);
     // TODO что-то сделать
     draw();

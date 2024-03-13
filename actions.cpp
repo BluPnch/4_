@@ -1,13 +1,12 @@
 #include "actions.h"
-#include "errors.h"
 #include <QGraphicsScene>
 #include <QGraphicsView>
 
-point_x_y_t point_transform(point_x_y_t point, draw window)
+point_x_y_t point_transform(point_x_y_t point, QGraphicsScene *scene)
 {
     point_x_y_t p_tmp;
-    p_tmp.x = point.x + window.width / 2;
-    p_tmp.y = point.y + window.height / 2;
+    p_tmp.x = point.x + scene->width() / 2;
+    p_tmp.y = point.y + scene->height() / 2;
     return p_tmp;
 }
 
@@ -19,22 +18,20 @@ point_x_y_t receive_x_y(point_t point)
 }
 
 
-void draw_line(point_t points_arr, link_t link, draw window)
+void draw_line(point_t *points_arr, link_t link, QGraphicsScene *scene)
 {
     point_x_y_t start_x_y = receive_x_y(points_arr[link.p1]);
     point_x_y_t end_x_y = receive_x_y(points_arr[link.p2]);
-    start_x_y = point_transform(start_x_y, window);
-    end_x_y = point_transform(end_x_y, window);
+    start_x_y = point_transform(start_x_y, scene);
+    end_x_y = point_transform(end_x_y, scene);
 
-    window.gV->addLine(start_x_y.x, start_x_y.y, end_x_y.x, end_x_y.y);
+    scene->addLine(start_x_y.x, start_x_y.y, end_x_y.x, end_x_y.y);
 }
 
 
-void draw_links(points_data points, links_data links, draw window) {
+void draw_links(points_data points, links_data links, QGraphicsScene *scene) {
     for (int i = 0; i < links.n; i++)
-    {
-        draw_line(points.arr, links.arr[i], window);
-    }
+        draw_line(points.arr, links.arr[i], scene);
     // scene->addLine(0, 0, 100, 100);
 }
 
@@ -46,12 +43,12 @@ void set(QGraphicsView *gV, QGraphicsScene *scene) {
 }
 
 int draw_figure(figure_t fig, draw window) {
+    int res = 0;
     QGraphicsScene *scene = new QGraphicsScene(window.gV);
     draw_links(fig.points, fig.links, scene);
 
     scene->setSceneRect(QRectF(QPointF(0, 0), QSizeF(window.width, window.height)));
-
     set(window.gV, scene);
 
-    // TODO return err;
+    return res;
 }

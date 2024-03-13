@@ -11,8 +11,8 @@ typedef struct draw {
 } draw;
 
 typedef struct point_x_y_t {
-    int x;
-    int y;
+    double x;
+    double y;
 } point_x_y_t;
 
 
