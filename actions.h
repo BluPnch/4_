@@ -10,6 +10,12 @@ typedef struct draw {
     int height;
 } draw;
 
+typedef struct point_x_y_t {
+    int x;
+    int y;
+} point_x_y_t;
+
+
 int draw_figure(figure_t fig, draw arg);
 
 void draw_links(points_data points, links_data links, QGraphicsScene *scene);
