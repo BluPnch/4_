@@ -3,7 +3,6 @@
 
 #include "point.h"
 
-
 struct figure_t
 {
     points_data points;

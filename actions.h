@@ -10,6 +10,25 @@ typedef struct draw {
     int height;
 } draw;
 
+typedef struct transfer {
+    float dx;
+    float dy;
+    float dz;
+} transfer;
+
+typedef struct zoom {
+    float kx;
+    float ky;
+    float kz;
+} zoom;
+
+typedef struct rotate {
+    float psi_x;
+    float psi_y;
+    float psi_z;
+} rotate;
+
+
 typedef struct point_x_y_t {
     double x;
     double y;
