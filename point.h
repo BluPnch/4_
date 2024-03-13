@@ -17,8 +17,8 @@ struct points_data
 
 struct link_t
 {
-    double p1;
-    double p2;
+    int p1;
+    int p2;
 };
 
 struct links_data

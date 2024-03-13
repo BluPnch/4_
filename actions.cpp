@@ -3,29 +3,39 @@
 #include <QGraphicsScene>
 #include <QGraphicsView>
 
-int receive_x_y(point_t point)
+point_x_y_t point_transform(point_x_y_t point, draw window)
+{
+    point_x_y_t p_tmp;
+    p_tmp.x = point.x + window.width / 2;
+    p_tmp.y = point.y + window.height / 2;
+    return p_tmp;
+}
+
+
+point_x_y_t receive_x_y(point_t point)
 {
     point_x_y_t point_x_y = {point.x, point.y};
     return point_x_y;
 }
 
 
-point_x_y_t *receive_start_end(point_t points_arr, link_t link, draw window)
+void draw_line(point_t points_arr, link_t link, draw window)
 {
     point_x_y_t start_x_y = receive_x_y(points_arr[link.p1]);
     point_x_y_t end_x_y = receive_x_y(points_arr[link.p2]);
-    draw_line(start_x_y, end_x_y, window.gV, window);
-    return [start_x_y, end_x_y];
+    start_x_y = point_transform(start_x_y, window);
+    end_x_y = point_transform(end_x_y, window);
+
+    window.gV->addLine(start_x_y.x, start_x_y.y, end_x_y.x, end_x_y.y);
 }
 
 
 void draw_links(points_data points, links_data links, draw window) {
     for (int i = 0; i < links.n; i++)
     {
-        p1, p2 = receive_start_end(points.arr, links.arr[i]);
-        draw_line(p1, p2, a, dr);
+        draw_line(points.arr, links.arr[i], window);
     }
-    scene->addLine(0, 0, 100, 100);
+    // scene->addLine(0, 0, 100, 100);
 }
 
 

@@ -69,7 +69,7 @@ void links_free(links_data &links)
 
 int link_read(link_t* l_act, FILE* f)
 {
-    if (fscanf(f, "%lf %lf", &l_act->p1, &l_act->p2) != 2)
+    if (fscanf(f, "%d %d", &l_act->p1, &l_act->p2) != 2)
         return ERR_FILE_FORMAT;
 
     return NONE;
