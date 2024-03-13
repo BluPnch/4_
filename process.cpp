@@ -1,5 +1,6 @@
 #include "process.h"
 #include "figure.h"
+#include "transformations.h"
 #include "errors.h"
 
 int task_manager(request req) {

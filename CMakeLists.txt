@@ -18,10 +18,12 @@ add_executable(4_ main.cpp
         errors.h
         figure.cpp
         figure.h
-        actions.cpp
-        actions.h
+        draws.cpp
+        draws.h
         link.cpp
-        link.h)
+        link.h
+        transformations.cpp
+        transformations.h)
 
 find_package(QT NAMES Qt6 Qt5 COMPONENTS Widgets REQUIRED)
 find_package(Qt${QT_VERSION_MAJOR} COMPONENTS Widgets REQUIRED)
