@@ -38,10 +38,45 @@ errors MainWindow::draw() {
     task_manager(req);
 }
 
+errors draw_action(Ui::MainWindow* ui)
+{
+    draw window;
+
+    window.gV = ui->graphicsView;
+    window.height = ui->graphicsView->height();
+    window.width = ui->graphicsView->width();
+
+    request req;
+    req.t = DRAW;
+    req.dr = window;
+
+    errors err = (errors) task_manager(req);
+    return err;
+}
+
+errors transform_and_show(request req, Ui::MainWindow* ui)
+{
+    errors err = (errors) task_manager(req);
+    if (err)
+        return err;
+    err = draw_action(ui);
+    return err;
+}
+
 void MainWindow::push_transfer() {
     double x = ui->transf_x->value(), y = ui->transf_y->value(), z = ui->transf_z->value();
     printf("%lf %lf %lf\n", x, y, z);
-    // TODO что-то сделать
+    request req;
+    req.t = TRANSFER;
+
+    req.trans.dx = x;
+    req.trans.dy = y;
+    req.trans.dz = z;
+
+    errors err = transform_and_show(req, ui);
+    // if (err)
+    //     error_message(err);
+
     draw();
 }
 void MainWindow::push_zoom() {

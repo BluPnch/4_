@@ -15,9 +15,9 @@ int task_manager(request req) {
         case DRAW:
             err = draw_figure(figure, req.dr);
             break;
-        // case MOVE:
-        //     err = move_figure(fig, req.mo);
-        // break;
+        case TRANSFER:
+            err = transfer_figure_t(figure.points, req.trans);
+            break;
         // case SCALE:
         //     err = scale_figure(fig, req.sc);
         // break;
