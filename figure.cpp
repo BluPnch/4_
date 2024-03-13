@@ -20,10 +20,10 @@ figure_t& init()
 void empty_figure(figure_t& figure)
 {
     figure.points.n = 0;
-    // TODO points_free(figuRre.points);
+    points_free(figure.points);
 
     figure.links.n = 0;
-    // TODO links_free(figure.links);
+    links_free(figure.links);
 }
 
 void copy_figure(figure_t& figure, figure_t& tmp)
@@ -59,38 +59,40 @@ int load_figure_from_file(figure_t& figure, const char *filename)
     }
 
     fclose(f);
-    // TODO return err;
     return res;
 }
 
+
 // _________________________________________________________________________________________
 
+void trans_point(point_t& point, transfer trans)
+{
+    point.x += trans.dx;
+    point.y += trans.dy;
+    point.z += trans.dz;
+}
 
-// point_t point_center(point_t point, draw arg)
+int trans_points_arr(point_t* points, int n, transfer trans)
+{
+    if(!points)
+        return ERR_NO_DOTS;
+    int err = 0;
+    for(int i = 0; i < n; i++)
+        trans_point(points[i], trans);
+    return err;
+}
+
+int transfer_figure_t(points_data& points, transfer trans)
+{
+    return trans_points_arr(points.arr, points.n, trans);
+}
+
+// int scale_figure_t(figure_t& fig, scale coeff)
 // {
-//     point_t p_tmp;
-//
-//     p_tmp.x = point.x + arg.width / 2;
-//     p_tmp.y = point.y + arg.height / 2;
-//
-//     return p_tmp;
+//     return scale_points_array(fig.points.arr, fig.points.n, coeff);
 // }
-
-// _________________________________________________________________________________________
-
-
-/*
-int move_figure_t(figure_t& fig, move coeff)
-{
-    return move_points_array(fig.points.arr, fig.points.n, coeff);
-}
-
-int scale_figure_t(figure_t& fig, scale coeff)
-{
-    return scale_points_array(fig.points.arr, fig.points.n, coeff);
-}
-
-int turn_figure_t(figure_t& fig, turn coeff)
-{
-    return turn_points_array(fig.points.arr, fig.points.n, coeff);
-}*/
+//
+// int turn_figure_t(figure_t& fig, turn coeff)
+// {
+//     return turn_points_array(fig.points.arr, fig.points.n, coeff);
+// }

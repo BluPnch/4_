@@ -32,7 +32,6 @@ void draw_line(point_t *points_arr, link_t link, QGraphicsScene *scene)
 void draw_links(points_data points, links_data links, QGraphicsScene *scene) {
     for (int i = 0; i < links.n; i++)
         draw_line(points.arr, links.arr[i], scene);
-    // scene->addLine(0, 0, 100, 100);
 }
 
 
