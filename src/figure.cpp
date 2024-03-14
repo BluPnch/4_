@@ -79,17 +79,3 @@ int load_figure_from_file(figure_t& figure, const char *filename)
     fclose(f);
     return res;
 }
-
-
-// _________________________________________________________________________________________
-
-
-// int scale_figure_t(figure_t& fig, scale coeff)
-// {
-//     return scale_points_array(fig.points.arr, fig.points.n, coeff);
-// }
-//
-// int turn_figure_t(figure_t& fig, turn coeff)
-// {
-//     return turn_points_array(fig.points.arr, fig.points.n, coeff);
-// }
