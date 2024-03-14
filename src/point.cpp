@@ -23,7 +23,7 @@ int points_alloc(points_data &points, int n) {
     if (!points.arr)
         return ERR_PTR_ALL;
 
-    return NONE;
+    return ERR_OK;
 }
 
 
@@ -33,18 +33,18 @@ void points_free(points_data &points) {
 }
 
 
-int point_read(point_t *p_act, FILE *f) {
-    if (fscanf(f, "%lf %lf %lf", &p_act->x, &p_act->y, &p_act->z) != 3)
+int point_read(point_t &p_act, FILE *f) {
+    if (fscanf(f, "%lf %lf %lf", &p_act.x, &p_act.y, &p_act.z) != 3)
         return ERR_FILE_FORMAT;
 
-    return NONE;
+    return ERR_OK;
 }
 
 
 int points_read(point_t *points, int n, FILE *f) {
     int res = 0;
     for (int i = 0; i < n && !res; i++) {
-        if (point_read(points + i, f))
+        if (point_read(points[i], f))
             res = ERR_FILE_FORMAT;
     }
     return res;

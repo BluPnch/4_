@@ -17,7 +17,7 @@ struct links_data
 
 int links_alloc(links_data &links, int n);
 void links_free(links_data &links);
-int link_read(link_t *l_act, FILE *f);
+int link_read(link_t &link, FILE *f);
 int links_read(link_t *links, int n, FILE *f);
 int links_process(links_data& links, FILE* f);
 

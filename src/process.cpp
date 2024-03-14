@@ -4,10 +4,9 @@
 #include "errors.h"
 
 
-
 int task_manager(request req) {
     static figure_t figure = init();
-    int err = 0;
+    int err = 0; //TODO ERRORS!!!!!!!!!!!!!!!!!!
 
     switch (req.t) {
         case INIT:
@@ -23,10 +22,10 @@ int task_manager(request req) {
             break;
         case ZOOM:
             err = zoom_figure_t(figure.points, req.zo);
-        break;
+            break;
         case ROTATE:
             err = rotate_figure_t(figure.points, req.rot);
-        break;
+            break;
         case QUIT:
             empty_figure(figure);
             break;
