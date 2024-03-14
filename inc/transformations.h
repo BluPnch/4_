@@ -5,21 +5,21 @@
 
 
 typedef struct transfer {
-    float dx;
-    float dy;
-    float dz;
+    double dx;
+    double dy;
+    double dz;
 } transfer;
 
 typedef struct zoom {
-    float kx;
-    float ky;
-    float kz;
+    double kx;
+    double ky;
+    double kz;
 } zoom;
 
 typedef struct rotate {
-    float psi_x;
-    float psi_y;
-    float psi_z;
+    double psi_x;
+    double psi_y;
+    double psi_z;
 } rotate;
 
 
