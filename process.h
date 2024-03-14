@@ -9,8 +9,8 @@ enum task
     LOAD_FILE,
     DRAW,
     TRANSFER,
-    // SCALE,
-    // TURN,
+    ZOOM,
+    ROTATE,
     QUIT
 };
 
@@ -27,8 +27,8 @@ typedef struct request
         file load_f;
         draw dr;
         transfer trans;
-        // struct scale sc;
-        // struct turn tu;
+        zoom zo;
+        rotate rot;
     };
 }request;
 

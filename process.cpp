@@ -3,6 +3,8 @@
 #include "transformations.h"
 #include "errors.h"
 
+
+
 int task_manager(request req) {
     static figure_t figure = init();
     int err = 0;
@@ -19,12 +21,12 @@ int task_manager(request req) {
         case TRANSFER:
             err = transfer_figure_t(figure.points, req.trans);
             break;
-        // case SCALE:
-        //     err = scale_figure(fig, req.sc);
-        // break;
-        // case TURN:
-        //     err = turn_figure(fig, req.tu);
-        // break;
+        case ZOOM:
+            err = zoom_figure_t(figure.points, req.zo);
+        break;
+        case ROTATE:
+            err = rotate_figure_t(figure.points, req.rot);
+        break;
         case QUIT:
             empty_figure(figure);
             break;

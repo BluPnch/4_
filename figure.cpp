@@ -3,6 +3,24 @@
 #include "point.h"
 #include "errors.h"
 
+
+int center_point(point_t point, draw window) {
+    point.x += window.width;
+    point.y += window.height;
+}
+
+int center_points_arr(points_data points, draw window) {
+    int res = ERR_OK;
+    if (!points.arr)
+        res = ERR_NO_DOTS;
+    else {
+        for (int i = 0; i < points.n; i++) {
+            center_point(points.arr[i], window);
+        }
+    }
+    return res;
+}
+
 figure_t& init()
 {
     static figure_t figure;

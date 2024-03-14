@@ -5,6 +5,7 @@
 #include <QMainWindow>
 
 #include "errors.h"
+#include "process.h"
 
 QT_BEGIN_NAMESPACE
 
@@ -23,14 +24,16 @@ public:
     ~MainWindow();
 
 private slots:
-    void push_transfer();
-    void push_zoom();
-    void push_rotate();
+    void on_transfer_clicked();
+    void on_zoom_clicked();
+    void on_rotate_clicked();
 
 private:
     Ui::MainWindow *ui;
     QGraphicsView *gV;
 
     errors draw();
+
+    errors transform_and_show(request req);
 };
 #endif // MAINWINDOW_H

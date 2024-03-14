@@ -4,7 +4,7 @@
 #include "QMessageBox"
 
 enum errors {
-    NONE,
+    ERR_OK,
     ERR_FILE_NOT_FOUND,
     ERR_FILE_FORMAT,
     ERR_FILE_CONTENT,

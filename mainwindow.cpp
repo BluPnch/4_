@@ -38,32 +38,17 @@ errors MainWindow::draw() {
     task_manager(req);
 }
 
-errors draw_action(Ui::MainWindow* ui)
-{
-    draw window;
 
-    window.gV = ui->graphicsView;
-    window.height = ui->graphicsView->height();
-    window.width = ui->graphicsView->width();
-
-    request req;
-    req.t = DRAW;
-    req.dr = window;
-
-    errors err = (errors) task_manager(req);
-    return err;
-}
-
-errors transform_and_show(request req, Ui::MainWindow* ui)
+errors MainWindow::transform_and_show(request req)
 {
     errors err = (errors) task_manager(req);
     if (err)
         return err;
-    err = draw_action(ui);
+    draw();
     return err;
 }
 
-void MainWindow::push_transfer() {
+void MainWindow::on_transfer_clicked() {
     double x = ui->transf_x->value(), y = ui->transf_y->value(), z = ui->transf_z->value();
     printf("%lf %lf %lf\n", x, y, z);
     request req;
@@ -73,21 +58,32 @@ void MainWindow::push_transfer() {
     req.trans.dy = y;
     req.trans.dz = z;
 
-    errors err = transform_and_show(req, ui);
+    errors err = transform_and_show(req);
     // if (err)
     //     error_message(err);
-
     draw();
 }
-void MainWindow::push_zoom() {
+void MainWindow::on_zoom_clicked() {
     double x = ui->zoom_x->value(),  y = ui->zoom_y->value(), z = ui->zoom_z->value();
     printf("%lf %lf %lf\n", x, y, z);
-    // TODO что-то сделать
+    request req;
+    req.t = ZOOM;
+
+    req.zo.kx = x;
+    req.zo.ky = y;
+    req.zo.kz = z;
+    errors err = transform_and_show(req);
     draw();
 }
-void MainWindow::push_rotate() {
+void MainWindow::on_rotate_clicked() {
     double x = ui->rot_x->value(),  y = ui->rot_y->value(), z = ui->rot_z->value();
     printf("%lf %lf %lf\n", x, y, z);
-    // TODO что-то сделать
+    request req;
+    req.t = ROTATE;
+
+    req.rot.psi_x = x;
+    req.rot.psi_y = y;
+    req.rot.psi_z = z;
+    errors err = transform_and_show(req);
     draw();
 }

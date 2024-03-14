@@ -24,5 +24,7 @@ typedef struct rotate {
 
 
 int transfer_figure_t(points_data& points, transfer trans);
+int zoom_figure_t(points_data& points, zoom zo);
+int rotate_figure_t(points_data &points, rotate rot);
 
 #endif //TRANSFORMATIONS_H

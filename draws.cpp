@@ -2,13 +2,13 @@
 #include <QGraphicsScene>
 #include <QGraphicsView>
 
-point_x_y_t point_transform(point_x_y_t point, QGraphicsScene *scene)
-{
-    point_x_y_t p_tmp;
-    p_tmp.x = point.x + scene->width() / 2;
-    p_tmp.y = point.y + scene->height() / 2;
-    return p_tmp;
-}
+// point_x_y_t point_center(point_x_y_t point, QGraphicsScene *scene)
+// {
+//     point_x_y_t p_tmp;
+//     p_tmp.x = point.x + scene->width() / 2;
+//     p_tmp.y = point.y + scene->height() / 2;
+//     return p_tmp;
+// }
 
 
 point_x_y_t receive_x_y(point_t point)
@@ -46,7 +46,7 @@ int draw_figure(figure_t fig, draw window) {
     QGraphicsScene *scene = new QGraphicsScene(window.gV);
     draw_links(fig.points, fig.links, scene);
 
-    // scene->setSceneRect(QRectF(QPointF(0, 0), QSizeF(window.width, window.height)));
+    scene->setSceneRect(QRectF(QPointF(0, 0), QSizeF(window.width, window.height)));
     set(window.gV, scene);
 
     return res;
